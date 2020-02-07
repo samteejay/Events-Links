@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Events links</title>
+<style>
+.hidden {display:none;}
+</style>
+</head>
+
+<body>
+
+<a href="JavaScript:void(0)" onClick="popup('Hello World')">Click</a><br><br>
+<input type="button" value="Click" onClick="alert('Hello world!');"><br><br>
+<img src="images/pix2.jpg" style="display:inline" alt="Image" class="img-responsive img-circle" width="350" height="350" onMouseover="src='images/pix5.jpg'" onMouseout="src='images/pix2.jpg'"><br><br><br><br>
+
+<a href="index.html" onMouseover="this.style.color='green';">Home Page</a><br><br>
+<form onSubmit="checkAddress('email');">
+Email:<br>
+<input type="text" id="email" size="30" onFocus="this.style.backgroundColor='yellow';" onBlur="this.style.backgroundColor='white';"><br>
+ZIP:<br>
+<input type="text" id="zip" onFocus="this.style.backgroundColor='yellow';" onBlur="fillCity();"><br>
+City:<br>
+<input type="text" id="city" onFocus="this.style.backgroundColor='yellow';" onBlur="this.style.backgroundColor='white';"><br><br>
+<input type="submit" value="Submit">
+</form>
+
+<p id="p1" style="color: red;">This year is the year of the great.</p>
+
+<p id="loris">Slow lorises are a group of several species of strepsirrhine primates which make up the genus Nycticebus.
+<a href="javascript:void(0);" onClick="expandLoris();"><em>Click for more.</em></a></p><br>
+
+<img src="images/pix4.jpg" id="ugly" onClick="makeInvisible();"><br><br>
+
+<img src="images/pix4.jpg" id="before" style="display:inline" alt="Image" class="img-responsive img-circle" width="350" height="350" onMouseover="swapPic(id, 'images/pix5.jpg');" onMouseout="returnPic(id, 'images/pix4.jpg');"><br><br>
+<h1 onMouseover="alert('Be sure to get your shopping done today.');">World Ends Tomorrow</h1><br>
+
+
+
+<script>
+
+function popup(message) {
+	
+	alert(message);
+}
+
+function checkAddress(fieldId) {
+	var val = document.getElementById(fieldId).value;
+	if (val === "") {
+		alert("Email address required.");
+	}
+}
+
+function fillCity() {
+	var cityName;
+	var zipEntered = document.getElementById("zip").value;
+	if (zipEntered === "1234") {
+		cityName = "Lagos";
+	}
+	else if (zipEntered === "4567") {
+		cityName = "Abuja";
+	}
+	else if (zipEntered === "8910") {
+		cityName = "PortHarcourt";
+	}
+	else {
+		cityName = "Enter a a valid city code.";
+	}
+	document.getElementById("city").value = cityName;
+}
+
+
+function expandLoris() {
+	var expandedParagraph = "Slow lorises are a group of several species of trepsirrhine primates which" +
+							"make up the genus Nycticebus. They have a round head, narrow snout, large eyes, and a variety of" + 
+							"distinctive coloration patterns that are species-dependent. The hands and feet of slow lorises have several" +
+							"adaptations that give them a pincer-like grip and enable them to grasp branches for long periods of time." +
+							"Slow lorises have a toxic bite, a rare trait among mammals.";							
+	document.getElementById("loris").innerHTML = expandedParagraph;
+}
+
+function makeInvisible() {
+	document.getElementById("ugly").className = "hidden";
+}
+
+function swapPic(eId, newPic) {
+	document.getElementById(eId).src = newPic;
+}
+
+function returnPic(eId, oldPic) {
+	document.getElementById(eId).src = oldPic;
+}
+
+</script>
+
+</body>
+</html>
